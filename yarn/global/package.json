@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "diagnostic-languageserver": "^1.14.2",
+    "neovim": "^4.10.1"
+  }
+}
