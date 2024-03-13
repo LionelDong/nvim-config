@@ -20,7 +20,7 @@ call plug#begin('~/.config/vim_plug/plugged')
     Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
     Plug 'nvim-lua/plenary.nvim'
     " Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
-    Plug 'windwp/nvim-autopairs'
+    " Plug 'windwp/nvim-autopairs'
     " Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -61,6 +61,12 @@ set expandtab
 set smartindent
 
 " Set Mouse
+" 右键粘贴剪贴板
+nnoremap <RightMouse> "+p
+vnoremap <RightMouse> "+p
+inoremap <RightMouse> <Esc>"+pa
+" Shift + 右键粘贴并保持选择
+xnoremap <S-RightMouse> "+P
 " set mouse=a
 " set selection=exclusive
 " set selectmode=mouse,key
@@ -69,6 +75,18 @@ set history=1000 "设置历史记录条数
 " close welcome page
 set shortmess=atI
 set clipboard+=unnamed
+
+" 自动删除行尾 ^M 字符
+augroup RemoveCRCharacters
+    autocmd!
+    autocmd BufWritePre * call s:RemoveCRCharacters()
+augroup END
+
+function! s:RemoveCRCharacters() abort
+    let l:winview = winsaveview()
+    silent! %s/\r//ge
+    call winrestview(l:winview)
+endfunction
 
 " VIM Encoding Method
 set nohls
@@ -129,10 +147,10 @@ let g:rainbow_conf = {
 \}
 
 " +================================ 括号补全 =====================================+ "
-lua << EOF
-require("nvim-autopairs").setup {}
-EOF
-
+" lua << EOF
+" require("nvim-autopairs").setup {}
+" EOF
+"
 " +================================ colorscheme =====================================+ "
 set t_Co=256
 set termguicolors
@@ -235,9 +253,9 @@ inoremap { {<CR>}<ESC>O
 " +================================== coc.nvim  ======================================+ "
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-let g:coc_global_extensions = ['coc-syntax', 'coc-snippets', 
+let g:coc_global_extensions = ['coc-syntax', 'coc-snippets',
 			\ 'coc-json', 'coc-highlight', 'coc-git', 'coc-vimlsp',
-			\ 'coc-emmet', 'coc-snippets', 'coc-yaml', 
+			\ 'coc-emmet', 'coc-snippets', 'coc-yaml',
 			\ 'coc-sh', 'coc-jedi', 'coc-cmake', 'coc-clangd']
 
 function! CheckBackSpace() abort
@@ -472,7 +490,7 @@ func SetTitle()
 		 call setline(8,"#**************************************************")
 		 call setline(9,"")
 		 call setline(10,"")
-	 endif 
+	 endif
 
 	if expand("%:e") == 'py'
 		 call setline(1, "\#!/usr/bin/env python3")
