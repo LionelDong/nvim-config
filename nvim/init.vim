@@ -19,6 +19,7 @@ call plug#begin('~/.config/vim_plug/plugged')
     Plug 'majutsushi/tagbar'
     Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'ghifarit53/tokyonight-vim'
     " Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
     " Plug 'windwp/nvim-autopairs'
     " Plug 'morhetz/gruvbox'
@@ -26,29 +27,29 @@ call plug#end()
 
 
 filetype plugin on
-" è®¾ç½®ä¸ºåŒå­—å®½æ˜¾ç¤º(ä¼šå½±å“ç•Œé¢æ¸²æŸ“ï¼Œæ‰€ä»¥å…³æ‰)
+" ÉèÖÃÎªË«×Ö¿íÏÔÊ¾(»áÓ°Ïì½çÃæäÖÈ¾£¬ËùÒÔ¹Øµô)
 " set ambiwidth=double
-" é˜²æ­¢vimèƒŒæ™¯é¢œè‰²é”™è¯¯(ç°åœ¨æ²¡æœ‰è¿™ä¸ªé—®é¢˜)
+" ·ÀÖ¹vim±³¾°ÑÕÉ«´íÎó(ÏÖÔÚÃ»ÓĞÕâ¸öÎÊÌâ)
 " set t_ut=
-" é«˜äº®åŒ¹é…æ‹¬å·
+" ¸ßÁÁÆ¥ÅäÀ¨ºÅ
 set showmatch
-" åŒ¹é…æ‹¬å·æ˜¾ç¤ºæ—¶é—´
+" Æ¥ÅäÀ¨ºÅÏÔÊ¾Ê±¼ä
 set matchtime=1
-" ä¸å ç”¨æœ€åçš„ä¸€ä¸ªcmdæ¡†æ˜¾ç¤ºç°åœ¨çš„æ¨¡å¼
+" ²»Õ¼ÓÃ×îºóµÄÒ»¸öcmd¿òÏÔÊ¾ÏÖÔÚµÄÄ£Ê½
 set noshowmode
-" å–æ¶ˆè­¦å‘Šå£°éŸ³
+" È¡Ïû¾¯¸æÉùÒô
 set novisualbell
 set noerrorbells
 set report=0
-" æœç´¢ä¸åŒºåˆ†å¤§å°å†™
+" ËÑË÷²»Çø·Ö´óĞ¡Ğ´
 set ignorecase
 set nobackup
 set autoread
 set nocompatible
-set backspace=2 "èƒ½ä½¿ç”¨backspaceå›åˆ 
+set backspace=2 "ÄÜÊ¹ÓÃbackspace»ØÉ¾
 set showcmd
 set hlsearch
-syntax on "è¯­æ³•æ£€æµ‹
+syntax on "Óï·¨¼ì²â
 
 " Tab settings
 set ts=4
@@ -61,22 +62,22 @@ set expandtab
 set smartindent
 
 " Set Mouse
-" å³é”®ç²˜è´´å‰ªè´´æ¿
+" ÓÒ¼üÕ³Ìù¼ôÌù°å
 nnoremap <RightMouse> "+p
 vnoremap <RightMouse> "+p
 inoremap <RightMouse> <Esc>"+pa
-" Shift + å³é”®ç²˜è´´å¹¶ä¿æŒé€‰æ‹©
+" Shift + ÓÒ¼üÕ³Ìù²¢±£³ÖÑ¡Ôñ
 xnoremap <S-RightMouse> "+P
 " set mouse=a
 " set selection=exclusive
 " set selectmode=mouse,key
 
-set history=1000 "è®¾ç½®å†å²è®°å½•æ¡æ•°
+set history=1000 "ÉèÖÃÀúÊ·¼ÇÂ¼ÌõÊı
 " close welcome page
 set shortmess=atI
 set clipboard+=unnamed
 
-" è‡ªåŠ¨åˆ é™¤è¡Œå°¾ ^M å­—ç¬¦
+" ×Ô¶¯É¾³ıĞĞÎ² ^M ×Ö·û
 augroup RemoveCRCharacters
     autocmd!
     autocmd BufWritePre * call s:RemoveCRCharacters()
@@ -100,15 +101,15 @@ set cmdheight=1
 set ruler
 set nu
 
-" çªå‡ºæ˜¾ç¤ºå½“å‰è¡Œ
+" Í»³öÏÔÊ¾µ±Ç°ĞĞ
 set cursorline
-" çªå‡ºæ˜¾ç¤ºå½“å‰åˆ—
+" Í»³öÏÔÊ¾µ±Ç°ÁĞ
 " set cursorcolumn
 
 " reset cursor when vim exits
 " au VimLeave * set guicursor=a:ver25-blinkon0
-set foldmethod=indent " è®¾ç½®é»˜è®¤æŠ˜å æ–¹å¼ä¸ºç¼©è¿›
-set foldlevelstart=99 " æ¯æ¬¡æ‰“å¼€æ–‡ä»¶æ—¶å…³é—­æŠ˜å 
+set foldmethod=indent " ÉèÖÃÄ¬ÈÏÕÛµş·½Ê½ÎªËõ½ø
+set foldlevelstart=99 " Ã¿´Î´ò¿ªÎÄ¼şÊ±¹Ø±ÕÕÛµş
 
 " coc.nvim settings
 set hidden
@@ -146,7 +147,7 @@ let g:rainbow_conf = {
 \   }
 \}
 
-" +================================ æ‹¬å·è¡¥å…¨ =====================================+ "
+" +================================ À¨ºÅ²¹È« =====================================+ "
 " lua << EOF
 " require("nvim-autopairs").setup {}
 " EOF
@@ -164,8 +165,11 @@ hi Todo ctermbg=red guibg=red
 let g:airline_theme = 'solarized'
 " let g:gruvbox_material_background = 'hard'
 " colorscheme gruvbox-material
-colorscheme nordfox
-
+" colorscheme nordfox
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 au FileType gitcommit,gitrebase let g:gutentags_enabled=0
 if has("autocmd")
@@ -182,34 +186,34 @@ inoremap <silent> <F2> <cmd>lua require('renamer').rename()<cr>
 nnoremap <silent> <leader>rn <cmd>lua require('renamer').rename()<cr>
 vnoremap <silent> <leader>rn <cmd>lua require('renamer').rename()<cr>
 
-" +================================ å¯è§†åŒ–ç¼©è¿› =====================================+ "
-let g:indent_guides_enable_on_vim_startup = 0  " é»˜è®¤å…³é—­
-let g:indent_guides_guide_size            = 1  " æŒ‡å®šå¯¹é½çº¿çš„å°ºå¯¸
-let g:indent_guides_start_level           = 2  " ä»ç¬¬äºŒå±‚å¼€å§‹å¯è§†åŒ–æ˜¾ç¤ºç¼©è¿›
+" +================================ ¿ÉÊÓ»¯Ëõ½ø =====================================+ "
+let g:indent_guides_enable_on_vim_startup = 0  " Ä¬ÈÏ¹Ø±Õ
+let g:indent_guides_guide_size            = 1  " Ö¸¶¨¶ÔÆëÏßµÄ³ß´ç
+let g:indent_guides_start_level           = 2  " ´ÓµÚ¶ş²ã¿ªÊ¼¿ÉÊÓ»¯ÏÔÊ¾Ëõ½ø
 au FileType json let g:indentLine_setConceal = 0 " set default conceal for json
 
 " +================================== NERDTree =======================================+ "
-" autocmd vimenter * NERDTree  "è‡ªåŠ¨å¼€å¯Nerdtree
-let g:NERDTreeWinSize = 25 "è®¾å®š NERDTree è§†çª—å¤§å°
-let NERDTreeShowBookmarks=1  " å¼€å¯Nerdtreeæ—¶è‡ªåŠ¨æ˜¾ç¤ºBookmarks
-"æ‰“å¼€vimæ—¶å¦‚æœæ²¡æœ‰æ–‡ä»¶è‡ªåŠ¨æ‰“å¼€NERDTree
+" autocmd vimenter * NERDTree  "×Ô¶¯¿ªÆôNerdtree
+let g:NERDTreeWinSize = 25 "Éè¶¨ NERDTree ÊÓ´°´óĞ¡
+let NERDTreeShowBookmarks=1  " ¿ªÆôNerdtreeÊ±×Ô¶¯ÏÔÊ¾Bookmarks
+"´ò¿ªvimÊ±Èç¹ûÃ»ÓĞÎÄ¼ş×Ô¶¯´ò¿ªNERDTree
 " autocmd vimenter * if !argc()|NERDTree|endif
-"å½“NERDTreeä¸ºå‰©ä¸‹çš„å”¯ä¸€çª—å£æ—¶è‡ªåŠ¨å…³é—­
+"µ±NERDTreeÎªÊ£ÏÂµÄÎ¨Ò»´°¿ÚÊ±×Ô¶¯¹Ø±Õ
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-" è®¾ç½®æ ‘çš„æ˜¾ç¤ºå›¾æ ‡
+" ÉèÖÃÊ÷µÄÏÔÊ¾Í¼±ê
 " let g:NERDTreeDirArrowExpandable = '+'
 " let g:NERDTreeDirArrowCollapsible = '-'
-let NERDTreeIgnore = ['\.pyc$']  " è¿‡æ»¤æ‰€æœ‰.pycæ–‡ä»¶ä¸æ˜¾ç¤º
-let g:NERDTreeShowLineNumbers=0 " æ˜¯å¦æ˜¾ç¤ºè¡Œå·
-let g:NERDTreeHidden=0     "ä¸æ˜¾ç¤ºéšè—æ–‡ä»¶
+let NERDTreeIgnore = ['\.pyc$']  " ¹ıÂËËùÓĞ.pycÎÄ¼ş²»ÏÔÊ¾
+let g:NERDTreeShowLineNumbers=0 " ÊÇ·ñÏÔÊ¾ĞĞºÅ
+let g:NERDTreeHidden=0     "²»ÏÔÊ¾Òş²ØÎÄ¼ş
 ""Making it prettier
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 " autocmd vimenter *  NERDTreeToggle
 
-" +================================== æŒ‰é”®æ˜ å°„ =======================================+ "
+" +================================== °´¼üÓ³Éä =======================================+ "
 " self key map:
 " <leader>s : open key
 " <leader>d : close key
