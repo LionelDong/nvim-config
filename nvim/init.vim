@@ -122,6 +122,8 @@ set wrap
 
 " set paste
 
+au BufNewFile,BufRead *.py set tw=200
+
 " +================================ rainbow =====================================+ "
 let g:rainbow_active = 1
 let g:rainbow_conf = {
@@ -513,3 +515,13 @@ autocmd BufNewFile * normal G
 " +=============================== CompileRun  ====================================+ "
 imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 nmap <F5> <Esc>:w<CR>:!clear;python %<CR>
+" +=============================== AutoPair  ====================================+ "
+" 默认自动补全所有括号，适用于所有文件类型
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+
+" 自动补全花括号且换行并对齐，仅适用于 C/C++ 文件
+autocmd FileType c,cpp inoremap { {<CR><CR>}<Esc>O<Tab>

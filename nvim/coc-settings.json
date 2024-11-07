@@ -16,6 +16,14 @@
         "cpp",
         "c"
     ],
+    "python.formatting.provider": "pyright",
+    "python.formatting.pyright": {
+        "lineLength": 120
+    },
+    "python.sortImports.args": [
+        "--profile",
+        "black"
+    ],
     "python.formating.provider": "black",
     "python.linting.pylamaEnabled": true,
     "diagnostic-languageserver.filetypes": {
@@ -25,7 +33,7 @@
         "pylint": {
             "sourceName": "pylint",
             "command": "pylint",
-            "debounce": 100,
+            "debounce": 200,
             "args": [
                 "--output-format",
                 "text",
